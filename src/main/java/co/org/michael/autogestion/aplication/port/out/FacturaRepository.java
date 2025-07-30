@@ -1,15 +1,15 @@
 package co.org.michael.autogestion.aplication.port.out;
 
-import co.org.michael.autogestion.domain.model.Factura;
+import co.org.michael.autogestion.domain.model.FacturaDTO;
 
 import java.time.LocalDate;
 import java.util.List;
 
 
 public interface FacturaRepository {
-    List<Factura> findAll();
+    List<FacturaDTO> findAll();
 
-    Factura findById(Long id);
+    FacturaDTO findById(Long id);
 
-    List<Factura> findByRageDate(LocalDate fechaInicio, LocalDate fechaFin);
+    List<FacturaDTO> findByRageDate(LocalDate fechaInicio, LocalDate fechaFin);
 }

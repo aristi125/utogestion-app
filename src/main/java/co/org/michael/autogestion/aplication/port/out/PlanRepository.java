@@ -1,10 +1,10 @@
 package co.org.michael.autogestion.aplication.port.out;
 
-import co.org.michael.autogestion.domain.model.Plan;
+import co.org.michael.autogestion.domain.model.PlanDTO;
 
 import java.util.List;
 
 public interface PlanRepository {
-    List<Plan> findAll();
-    Plan findById(Long id);
+    List<PlanDTO> findAll();
+    PlanDTO findById(Long id);
 }

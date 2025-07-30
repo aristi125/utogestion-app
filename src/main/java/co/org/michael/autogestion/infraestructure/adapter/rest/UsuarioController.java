@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.rest;
 
 import co.org.michael.autogestion.aplication.port.in.UsuarioUseCase;
-import co.org.michael.autogestion.domain.model.Usuario;
+import co.org.michael.autogestion.domain.model.UsuarioDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +16,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<Usuario> obtenerUsuario(@PathVariable Long userId) {
-        Usuario usuario = usuarioUseCase.obtenerUsuario(userId);
+    public ResponseEntity<UsuarioDTO> obtenerUsuario(@PathVariable Long userId) {
+        UsuarioDTO usuario = usuarioUseCase.obtenerUsuario(userId);
         if (usuario == null) {
             return ResponseEntity.notFound().build();
         }
@@ -25,8 +25,8 @@ public class UsuarioController {
     }
 
     @GetMapping("/my-profile")
-    public ResponseEntity<Usuario> obtenerPerfil() {
-        Usuario usuario = usuarioUseCase.obtenerPerfil();
+    public ResponseEntity<UsuarioDTO> obtenerPerfil() {
+        UsuarioDTO usuario = usuarioUseCase.obtenerPerfil();
         if (usuario == null) {
             return ResponseEntity.notFound().build();
         }

@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.persistence.plan;
 
 import co.org.michael.autogestion.aplication.port.out.PlanRepository;
-import co.org.michael.autogestion.domain.model.Plan;
+import co.org.michael.autogestion.domain.model.PlanDTO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -16,12 +16,12 @@ public class PlanRepositoryImplement implements PlanRepository {
     }
 
     @Override
-    public List<Plan> findAll() {
-        return planRepository.findAll().stream().map(p -> new Plan(p.getId(), p.getNombre(), p.getPrecio(), p.getDatosGb(), p.getMinutos(), p.getSms(), p.getDescripcion())).collect(Collectors.toList());
+    public List<PlanDTO> findAll() {
+        return planRepository.findAll().stream().map(p -> new PlanDTO(p.getId(), p.getNombre(), p.getPrecio(), p.getDatosGb(), p.getMinutos(), p.getSms(), p.getDescripcion())).collect(Collectors.toList());
     }
 
     @Override
-    public Plan findById(Long id) {
-        return planRepository.findById(id).map(p -> new Plan(p.getId(), p.getNombre(), p.getPrecio(), p.getDatosGb(), p.getMinutos(), p.getSms(), p.getDescripcion())).orElse(null);
+    public PlanDTO findById(Long id) {
+        return planRepository.findById(id).map(p -> new PlanDTO(p.getId(), p.getNombre(), p.getPrecio(), p.getDatosGb(), p.getMinutos(), p.getSms(), p.getDescripcion())).orElse(null);
     }
 }

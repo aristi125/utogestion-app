@@ -1,14 +1,14 @@
 package co.org.michael.autogestion.aplication.port.in;
 
-import co.org.michael.autogestion.domain.model.Factura;
+import co.org.michael.autogestion.domain.model.FacturaDTO;
 
 import java.time.LocalDate;
 import java.util.List;
 
 public interface FacturaUseCase {
-    List<Factura> obtenerFacturas();
+    List<FacturaDTO> obtenerFacturas();
 
-    Factura obtenerFactura(Long id);
+    FacturaDTO obtenerFactura(Long id);
 
-    List<Factura> obtenerFacturasPorRangoFechas(LocalDate fechaInicio, LocalDate fechaFin);
+    List<FacturaDTO> obtenerFacturasPorRangoFechas(LocalDate fechaInicio, LocalDate fechaFin);
 }

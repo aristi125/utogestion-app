@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.persistence.factura;
 
 import co.org.michael.autogestion.aplication.port.out.FacturaRepository;
-import co.org.michael.autogestion.domain.model.Factura;
+import co.org.michael.autogestion.domain.model.FacturaDTO;
 import org.springframework.stereotype.Repository;
 
 import java.time.LocalDate;
@@ -17,9 +17,9 @@ public class FacturaRepositoryImplement implements FacturaRepository {
     }
 
     @Override
-    public List<Factura> findAll() {
+    public List<FacturaDTO> findAll() {
         return jpaRepository.findAll().stream()
-                .map(f -> new Factura(
+                .map(f -> new FacturaDTO(
                         f.getId(),
                         f.getPeriodo(),
                         f.getMonto(),
@@ -32,9 +32,9 @@ public class FacturaRepositoryImplement implements FacturaRepository {
     }
 
     @Override
-    public Factura findById(Long id) {
+    public FacturaDTO findById(Long id) {
         return jpaRepository.findById(id)
-                .map(f -> new Factura(
+                .map(f -> new FacturaDTO(
                         f.getId(),
                         f.getPeriodo(),
                         f.getMonto(),
@@ -47,9 +47,9 @@ public class FacturaRepositoryImplement implements FacturaRepository {
     }
 
     @Override
-    public List<Factura> findByRageDate(LocalDate fechaInicio, LocalDate fechaFin) {
+    public List<FacturaDTO> findByRageDate(LocalDate fechaInicio, LocalDate fechaFin) {
         return jpaRepository.findByFechaCreacionBetween(fechaInicio,fechaFin).stream()
-                .map(f -> new Factura(
+                .map(f -> new FacturaDTO(
                         f.getId(),
                         f.getPeriodo(),
                         f.getMonto(),

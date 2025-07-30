@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.rest;
 
 import co.org.michael.autogestion.aplication.port.in.ConsumoUseCase;
-import co.org.michael.autogestion.domain.model.Consumo;
+import co.org.michael.autogestion.domain.model.ConsumoDTO;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -15,8 +15,8 @@ public class ConsumoController {
     }
 
     @GetMapping("/{consumoId}")
-    public ResponseEntity<Consumo> obtenerConsumo(@PathVariable Long consumoId) {
-        Consumo consumo = consumoUseCase.obtenerConsumo(consumoId);
+    public ResponseEntity<ConsumoDTO> obtenerConsumo(@PathVariable Long consumoId) {
+        ConsumoDTO consumo = consumoUseCase.obtenerConsumo(consumoId);
         if (consumo == null) {
             return ResponseEntity.notFound().build();
         }

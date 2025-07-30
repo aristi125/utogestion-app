@@ -1,9 +1,9 @@
 package co.org.michael.autogestion.aplication.port.out;
 
-import co.org.michael.autogestion.domain.model.Usuario;
+import co.org.michael.autogestion.domain.model.UsuarioDTO;
 
 public interface UsuarioRepository {
-    Usuario findById(Long id);
-    Usuario GetProfile();
+    UsuarioDTO findById(Long id);
+    UsuarioDTO GetProfile();
 
 }

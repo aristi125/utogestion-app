@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.persistence.consumo;
 
 import co.org.michael.autogestion.aplication.port.out.ConsumoRepository;
-import co.org.michael.autogestion.domain.model.Consumo;
+import co.org.michael.autogestion.domain.model.ConsumoDTO;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -13,8 +13,8 @@ public class ConsumoRepositoryImplements implements ConsumoRepository {
     }
 
     @Override
-    public Consumo findById(Long id) {
-        return jpaRepository.findByPlanId(id).map(c -> new Consumo(
+    public ConsumoDTO findById(Long id) {
+        return jpaRepository.findByPlanId(id).map(c -> new ConsumoDTO(
                 c.getId(),c.getDatosGb(),c.getMinutos(),c.getSms(),c.getUltimaActualizacion())).orElse(null);
     }
 }

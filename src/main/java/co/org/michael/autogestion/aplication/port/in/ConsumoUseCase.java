@@ -1,8 +1,8 @@
 package co.org.michael.autogestion.aplication.port.in;
 
-import co.org.michael.autogestion.domain.model.Consumo;
+import co.org.michael.autogestion.domain.model.ConsumoDTO;
 
 
 public interface ConsumoUseCase {
-    Consumo obtenerConsumo(Long id);
+    ConsumoDTO obtenerConsumo(Long id);
 }

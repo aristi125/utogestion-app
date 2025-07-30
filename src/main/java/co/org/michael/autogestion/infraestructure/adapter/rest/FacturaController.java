@@ -1,7 +1,7 @@
 package co.org.michael.autogestion.infraestructure.adapter.rest;
 
 import co.org.michael.autogestion.aplication.port.in.FacturaUseCase;
-import co.org.michael.autogestion.domain.model.Factura;
+import co.org.michael.autogestion.domain.model.FacturaDTO;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -20,13 +20,13 @@ public class FacturaController {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<Factura>> obtenerFacturas() {
+    public ResponseEntity<List<FacturaDTO>> obtenerFacturas() {
         return ResponseEntity.ok(facturaUseCase.obtenerFacturas());
     }
 
     @GetMapping("/{facturaId}")
-    public ResponseEntity<Factura> obtenerFactura(@PathVariable Long facturaId) {
-        Factura factura = facturaUseCase.obtenerFactura(facturaId);
+    public ResponseEntity<FacturaDTO> obtenerFactura(@PathVariable Long facturaId) {
+        FacturaDTO factura = facturaUseCase.obtenerFactura(facturaId);
         if (factura == null) {
             return ResponseEntity.notFound().build();
         }
@@ -34,7 +34,7 @@ public class FacturaController {
     }
 
     @GetMapping("/date-range")
-    public ResponseEntity<List<Factura>> obtenerFacturaRangoFechas(
+    public ResponseEntity<List<FacturaDTO>> obtenerFacturaRangoFechas(
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaInicio,
             @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate fechaFin) {
         return ResponseEntity.ok(facturaUseCase.obtenerFacturasPorRangoFechas(fechaInicio, fechaFin));

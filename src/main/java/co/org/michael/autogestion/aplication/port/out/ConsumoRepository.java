@@ -1,8 +1,8 @@
 package co.org.michael.autogestion.aplication.port.out;
 
-import co.org.michael.autogestion.domain.model.Consumo;
+import co.org.michael.autogestion.domain.model.ConsumoDTO;
 
 
 public interface ConsumoRepository {
-    Consumo findById(Long id);
+    ConsumoDTO findById(Long id);
 }
